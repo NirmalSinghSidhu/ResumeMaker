@@ -1,0 +1,21 @@
+/* body{
+    background-color: red;
+} */
+ #cv-template{
+    display: none;
+ }
+ 
+
+ .myProfile{
+    width: 200px;
+    border-radius: 50%;
+    height: 200px;
+ }
+.background{
+    background-color: cornflowerblue;
+}
+
+.card-header{
+   height: 45px;
+   text-size-adjust: inherit;
+}

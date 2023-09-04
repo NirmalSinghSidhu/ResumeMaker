@@ -1,0 +1,265 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css"> </link>
+    <title>Resume Maker</title>
+
+ </head>
+ <body>
+    
+    <!-- html code is written over there -->
+    <div class="container" id="cv-form">
+        <h1 class="text-center my-2">Resume Maker</h1>
+        <p class="text-center">By Nirmal Singh</p>
+        <h6>(All fields  marked with * are neccessary to generate your Resume )</h6>
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <!-- first-colunm -->
+                <h3>Personal Information</h3>
+
+                <div class="form-group mt-2">
+                    <label for="nemeField">Your Name *</label>
+                    <input type = "text" id = "nameField" class="form-control" placeholder="Enter Here " required/> 
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="FatherNameField">Father's Name *</label>
+                    <input type = "text" id = "FatherNameField" class="form-control" placeholder="Enter Here " required/> 
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="contactField">Your Contact *</label>
+                    <input type = "text" id = "contactField" class="form-control" placeholder="Enter Here " required/> 
+                </div>
+                
+                <div class="form-group mt-2">
+                    <label for="addressField">Your Address *</label>
+                    <textarea id = "addressField" 
+                      class="form-control" 
+                      placeholder="Enter Here" 
+                      rows="2" required></textarea>
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="emailField">Your Email ID *</label>
+                    <input type = "text" id = "emailField" class="form-control" placeholder="Enter Here "/> 
+                </div>
+               
+                <div class="form-group mt-4">
+                    <label for="">Select Your Profile Photo *</label>
+                    <input id ="imgField" type = "file" class="form-control" />
+                </div>
+                
+                <p class="text-secondary my-3">Important Links (Leave Empty if you have not)</p>
+                <div class="form-group mt-2">
+                    <label for="githubField">Github</label>
+                    <input type = "text" id = "githubField" class="form-control" placeholder="Enter Here "/> 
+                </div>
+                <div class="form-group mt-2">
+                    <label for="instaField">Instagram</label>
+                    <input type = "text" id = "instaField" class="form-control" placeholder="Enter Here "/> 
+                </div>
+                <div class="form-group mt-2">
+                    <label for="LinkedField">LinkedIn</label>
+                    <input type = "text" id = "LinkedField" class="form-control" placeholder="Enter Here "/> 
+                </div>
+            </div>
+
+            
+            <div class="col-md-6">
+
+                <!-- second-column -->
+                <h3>Professional Information </h3>
+
+                <div class="form-group mt-2">
+                    <label for="">Objective *</label>
+                    <textarea  class="form-control"  
+                    id ="objectiveField"
+                    placeholder="Enter here" rows="5"></textarea>
+                </div>
+
+                <div class="form-group mt-2" id="we">
+                    <label for="">Work Experience *</label>
+                    <textarea  
+                    class="form-control weField" 
+                    placeholder="Enter Here" rows="2"></textarea>
+
+                    <!-- new text area -->
+
+                     <div class="container text-center mt-2" id="weAddButton">
+                        <button onclick="addNewWEField()" class="btn btn-primary btn-sm">Add</button>
+                     </div> 
+                </div>
+
+                <div class="form-group mt-2" id="skills">
+                    <label for="">Skills *</label>
+                    <input
+                      type="text"  
+                      class="form-control skillsField" 
+                      placeholder="Enter Here"/>
+
+                     <!-- new text area -->
+
+                     <div class="container text-center mt-2" id="skillAddButton">
+                        <button  onclick="addNewSkills()" class="btn btn-primary btn-sm">Add</button>
+                     </div>  
+                </div>
+
+                <div class="form-group mt-2" id="aq">
+                    <label for="">Academic Qualifcation *</label>
+                    <textarea  
+                      class="form-control aqField" 
+                      placeholder="Enter Here"
+                      rows="2"></textarea>
+
+                     <!-- new text area -->
+
+                     <div class="container text-center mt-2" id="aqAddButton">
+                        <button  onclick="addNewAQField()" class="btn btn-primary btn-sm">Add</button>
+                     </div>  
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="referField">Enter The Reference *</label>
+                    <textarea id = "referField" 
+                      class="form-control" 
+                      placeholder="Enter Here" 
+                      rows="2" required></textarea>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="container text-center mt-3">
+            <button  
+            onclick="generateCV()"
+            class="btn btn-primary btn-lg">Generate CV</button>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    
+    <!-- cv-(resume) template -->
+    <div id="cv-template">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4 text-center p-5 background">
+                <!-- first-colunm -->
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzCb4DonWw5pT1-A3Su9HzG6TTN4nMOmj7tg&usqp=CAU" alt="" 
+                class="img-fluid myProfile"
+                id = "imgT">
+
+                <div class="container">
+                    <p id="nameT1">Nirmal Singh</p>
+                    <p id="contactT">98394832948432</p>
+                    <p id="emailT">abcd123@gmail.com</p>
+                    <p id="addressT">Ludhiana Punjab</p>
+
+                    <hr/>
+                    <p>
+                        <a  id="ghT" href="#1">https://github.com/NirmalSinghSidhu/</a>
+                    </p>
+                    <p><a  id = "linkedT" href="#1">https://www.linkedin.com/in/nirmal-singh-772771260/</a></p>
+                    <p><a id ="instaT" href="#1">https://leetcode.com/nirmalSinghsidhu/</a></p>
+                </div>
+
+            </div>
+            <div class="col-md-8">
+                <!-- second-column -->
+
+                <h1  id ="nameT2" class="text-center" style="font-weight: 980;">
+                    Nirmal Singh Sidhu</h1>
+
+                    <!-- objective-card -->
+                <div class="card mt-4">
+                    <div class="card-header  background">
+                        <h4>Objective</h4>
+                    </div>
+                    <div class="card-body">
+                        <p id="objectiveT">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                            Voluptates laudantium voluptatum minus nisi fugit,
+                            corrupti reiciendis quasi incidunt nobis quo
+                            repellat iusto necessitatibus, eaque, maxime quam. Sapiente minima nisi alias.
+                        </p>
+                    </div>
+                </div>
+
+               <!-- work-Experience -->
+                <div class="card mt-4" >
+                    <div class="card-header background">
+                        <h4>Work Experience</h4>
+                    </div>
+                    <div class="card-body">
+                       <ul id ="weT">
+                        <li>Lorem, ipsum dolor sit amet consectetur!</li>
+                        <li>Lorem, ipsum dolor sit amet consectetur!</li>
+                        <li>Lorem, ipsum dolor sit amet consectetur!</li>
+                       </ul>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h4>Skills</h4>
+                    </div>
+                    <div class="card-body">
+                       <ul id ="skillsT">
+                        <li>Lorem, ipsum dolor sit amet consectetur!</li>
+                        <li>Lorem, ipsum dolor sit amet consectetur!</li>
+                        <li>Lorem, ipsum dolor sit amet consectetur!</li>
+                       </ul>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-header background">
+                        <h4>Acedemic Qualifcation</h4>
+                    </div>
+                    <div class="card-body">
+                       <ul id ="aqT">
+                        <li>Lorem, ipsum dolor sit amet consectetur!</li>
+                        <li>Lorem, ipsum dolor sit amet consectetur!</li>
+                        <li>Lorem, ipsum dolor sit amet consectetur!</li>
+                       </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div class="container text-center">
+        <h4>References</h4>
+        <p id="refer">Dr .Jaswinder Singh , Punjabi University Patiala , 77989</p>
+    </div>
+   
+    
+    <div class="container mt-3 text-center">
+        <button 
+        id="print"
+        onclick="printCV()" class="btn background">
+            Print Resume
+        </button>
+    </div>
+    </div>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" 
+    crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+ </body>
+ </html>
